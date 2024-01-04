@@ -5,6 +5,7 @@ env/
 # Configuration files
 .vscode/
 .idea/
+.prettierignore
 
 # Compiled Python files
 __pycache__/
