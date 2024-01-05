@@ -30,3 +30,8 @@ h1 a {
 span {
   color: deepskyblue;
 }
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+}
