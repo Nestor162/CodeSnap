@@ -6,6 +6,7 @@ env/
 .vscode/
 .idea/
 .prettierignore
+.env
 
 # Compiled Python files
 __pycache__/
