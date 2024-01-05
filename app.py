@@ -15,7 +15,7 @@ def code():
     if session.get("code") is None:
         session["code"] = ""
     context = {
-        "message": "Paste Your Python Code 🐍",
+        "message": "Code to image converter",
         "code": session["code"],
     }
     return render_template("code_input.html", **context)
