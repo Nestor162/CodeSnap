@@ -23,12 +23,18 @@
       Clear ♻️ 
     </button>
     </div>
-      <div class="tooltip">
+      <!-- <div class="tooltip">
       <span class="tooltiptext">Save the current code for later</span>
     <button formmethod="post" formaction="{{ url_for('save_code') }}">
       Save 💾
     </button>
-      </div>
+      </div> -->
+    <div class="tooltip">
+      <span class="tooltiptext">Continue to style selection</span>
+    <button formmethod="post" formaction="{{ url_for('save_style') }}">
+      Next ➡️
+    </button>
+    </div>
   </div>
 </form>
 {% endblock content %}
