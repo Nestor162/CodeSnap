@@ -7,10 +7,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Lato&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <link
       rel="stylesheet"
       type="text/css"
       href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='buttons.css') }}"
+    />
+     <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='tooltips.css') }}"
     />
     <title>
       CodeSnap {% block title %}{% endblock title %}
@@ -18,7 +29,7 @@
   </head>
   <body>
     <h1>
-      <span><a href="{{ url_for('code') }}">CodeSnap</a>:</span> {{ message }}
+      <span id="title"><a href="{{ url_for('code') }}">CodeSnap</a>:</span> {{ message }}
     </h1>
     <main>
       {% block content %}
