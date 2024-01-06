@@ -16,12 +16,19 @@
     autofocus
   >{{ code }}</textarea>
   <div class="controls">
+    <div class="tooltip">
+      <span class="tooltiptext">Clear the saved code</span>
     <button formmethod="post" formaction="{{ url_for('reset_session') }}">
-      Reset Session ♻️
+      <!-- Reset Session ♻️ -->
+      Clear ♻️ 
     </button>
+    </div>
+      <div class="tooltip">
+      <span class="tooltiptext">Save the current code for later</span>
     <button formmethod="post" formaction="{{ url_for('save_code') }}">
-      Save Code 💾
+      Save 💾
     </button>
+      </div>
   </div>
 </form>
 {% endblock content %}
