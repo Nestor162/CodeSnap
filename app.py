@@ -3,13 +3,13 @@ from flask import Flask, render_template, session, redirect, request, url_for
 from dotenv import load_dotenv
 
 app = Flask(__name__)
+
+# Load secret_key from environment variable, in order to be able to use sessions safely.
 load_dotenv()
 app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY")
 
 
-PLACEHOLDER_CODE = "print('Hello, World!')"
-
-
+# This is the main endpoint for the app.
 @app.route("/", methods=["GET"])
 def code():
     if session.get("code") is None:
