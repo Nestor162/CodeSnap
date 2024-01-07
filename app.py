@@ -26,12 +26,13 @@ app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY")
 def code():
     all_languages = list(get_all_lexers())
     all_languages.insert(0, DEFAULT_LANGUAGE)
-    lines = session["code"].split("\n")
 
     if session.get("code") is None:
         session["code"] = ""
     if session.get("language") is None:
         session["language"] = DEFAULT_LANGUAGE
+
+    lines = session["code"].split("\n")
 
     context = {
         "message": "Code to image converter",
@@ -115,6 +116,7 @@ def style():
 
     # Set text color based on theme
     text_color = "white" if is_dark_theme else "black"
+
     context = {
         "message": message,
         "all_styles": list(get_all_styles()),
