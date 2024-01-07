@@ -7,6 +7,7 @@ from pygments.styles import get_all_styles
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.lexers import get_all_lexers
+from PIL import ImageColor
 
 
 app = Flask(__name__)
@@ -31,6 +32,7 @@ def code():
         session["code"] = ""
     if session.get("language") is None:
         session["language"] = DEFAULT_LANGUAGE
+
     context = {
         "message": "Code to image converter",
         "code": session["code"],
@@ -77,6 +79,13 @@ def get_lexer_by_name_or_aliases(aliases, code):
         return None
 
 
+# Function to check if the background color is dark
+def is_dark_background(color):
+    rgb = ImageColor.getcolor(color, "RGB")
+    luminance = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255.0
+    return luminance < 0.5
+
+
 # Endpoint for the style selection page.
 @app.route("/style", methods=["GET"])
 def style():
@@ -96,14 +105,24 @@ def style():
         message = f"Select your style for your {detected_language} code 🎨"
         lexer = get_lexer_by_name_or_aliases(selected_language[1], session["code"])
 
-    formatter = HtmlFormatter(style=session["style"])
+    # Get the selected style and background color
+    selected_style = session["style"]
+    formatter = HtmlFormatter(style=selected_style)
+    style_bg_color = formatter.style.background_color
+
+    # Check if the background is dark
+    is_dark_theme = is_dark_background(style_bg_color)
+
+    # Set text color based on theme
+    text_color = "white" if is_dark_theme else "black"
     context = {
         "message": message,
         "all_styles": list(get_all_styles()),
-        "selected_style": session["style"],
+        "selected_style": selected_style,
         "style_definitions": formatter.get_style_defs(),
-        "style_bg_color": formatter.style.background_color,
+        "style_bg_color": style_bg_color,
         "highlighted_code": highlight(session["code"], lexer, formatter),
+        "text_color": text_color,
     }
     return render_template("style_selection.html", **context)
 
