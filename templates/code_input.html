@@ -7,12 +7,17 @@
 
 {% block content %}
 <form>
-   <select name="language" class="language">
+  <select name="language" class="language">
+    {% if selected_language[0] != "auto" %}
         <option value="{{ selected_language[0] }}|{{ selected_language[1] }}">{{ selected_language[0] }}</option>
-        {% for lang in all_languages %}
-          <option value="{{ lang[0] }}|{{ lang[1] }}">{{ lang[0] }}</option>
-        {% endfor %}
-  </select>
+    {% endif %}
+    {% for lang in all_languages %}
+        {% if lang[0] != "auto" %}
+            <option value="{{ lang[0] }}|{{ lang[1] }}">{{ lang[0] }}</option>
+        {% endif %}
+    {% endfor %}
+</select>
+
   <textarea
     required
     class="code"

@@ -23,6 +23,8 @@ app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY")
 # This is the main endpoint for the app.
 @app.route("/", methods=["GET"])
 def code():
+    all_languages = list(get_all_lexers())
+    all_languages.insert(0, DEFAULT_LANGUAGE)
     if session.get("code") is None:
         session["code"] = ""
     if session.get("language") is None:
@@ -30,7 +32,7 @@ def code():
     context = {
         "message": "Code to image converter",
         "code": session["code"],
-        "all_languages": list(get_all_lexers()),
+        "all_languages": all_languages,
         "selected_language": session["language"],
     }
     return render_template("code_input.html", **context)
