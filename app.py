@@ -12,11 +12,7 @@ from pygments.lexers import get_all_lexers
 app = Flask(__name__)
 
 DEFAULT_STYLE = "monokai"
-DEFAULT_LANGUAGE = (
-    "Python",
-    ("python", "py", "sage", "python3", "py3", "bazel", "starlark"),
-)
-print(DEFAULT_LANGUAGE)
+DEFAULT_LANGUAGE = ("Detect language (Automatic)", "auto")
 
 
 # Load secret_key from environment variable, in order to be able to use sessions safely.
@@ -82,13 +78,21 @@ def style():
         session["style"] = DEFAULT_STYLE
 
     selected_language = session["language"]
+    detected_language = ""
 
-    # lexer_name = find_lexer_class_by_name(selected_language)
-    lexer = get_lexer_by_name_or_aliases(selected_language[1], session["code"])
+    # If the language is "Detect language (Automatic)", then we need to guess the lexer.
+    if selected_language[1] == "auto":
+        detected_language = guess_lexer(session["code"]).name.capitalize()
+        message = f"Select your style for your {detected_language} code 🎨"
+        lexer = guess_lexer(session["code"])
+    else:
+        detected_language = selected_language[0].capitalize()
+        message = f"Select your style for your {detected_language} code 🎨"
+        lexer = get_lexer_by_name_or_aliases(selected_language[1], session["code"])
 
     formatter = HtmlFormatter(style=session["style"])
     context = {
-        "message": f"Select your style for your {selected_language[0].capitalize()} code 🎨",
+        "message": message,
         "all_styles": list(get_all_styles()),
         "selected_style": session["style"],
         "style_definitions": formatter.get_style_defs(),
