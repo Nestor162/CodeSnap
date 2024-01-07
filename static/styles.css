@@ -85,3 +85,7 @@ select {
   line-height: 1.4em;
   /* font-size: 1rem; */
 }
+
+.language {
+  margin-bottom: 26.8px;
+}

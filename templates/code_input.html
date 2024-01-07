@@ -7,7 +7,14 @@
 
 {% block content %}
 <form>
+   <select name="language" class="language">
+        <option value="{{ selected_language[0] }}|{{ selected_language[1] }}">{{ selected_language[0] }}</option>
+        {% for lang in all_languages %}
+          <option value="{{ lang[0] }}|{{ lang[1] }}">{{ lang[0] }}</option>
+        {% endfor %}
+  </select>
   <textarea
+    required
     class="code"
     name="code"
     placeholder="Paste your code snippet here..."
@@ -23,12 +30,7 @@
       Clear ♻️ 
     </button>
     </div>
-      <!-- <div class="tooltip">
-      <span class="tooltiptext">Save the current code for later</span>
-    <button formmethod="post" formaction="{{ url_for('save_code') }}">
-      Save 💾
-    </button>
-      </div> -->
+    
     <div class="tooltip">
       <span class="tooltiptext">Continue to style selection</span>
     <button formmethod="post" formaction="{{ url_for('save_style') }}">
