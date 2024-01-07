@@ -25,6 +25,8 @@ app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY")
 def code():
     all_languages = list(get_all_lexers())
     all_languages.insert(0, DEFAULT_LANGUAGE)
+    lines = session["code"].split("\n")
+
     if session.get("code") is None:
         session["code"] = ""
     if session.get("language") is None:
@@ -34,6 +36,8 @@ def code():
         "code": session["code"],
         "all_languages": all_languages,
         "selected_language": session["language"],
+        "num_lines": len(lines),
+        "max_chars": len(max(lines, key=len)),
     }
     return render_template("code_input.html", **context)
 

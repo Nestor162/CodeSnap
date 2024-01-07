@@ -6,6 +6,12 @@
 {% endblock title %}
 
 {% block content %}
+<style>
+  .code {
+    min-height: calc({{ num_lines }}em * 1.5 + 2 * 1em);
+    min-width: calc({{ max_chars }}ch + 4 * 2em);
+  }
+</style>
 <form>
   <select name="language" class="language">
     {% if selected_language[0] != "auto" %}
