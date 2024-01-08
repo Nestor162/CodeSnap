@@ -101,12 +101,12 @@ def style():
     # If the language is "Detect language (Automatic)", then we need to guess the lexer.
     if selected_language[1] == "auto":
         detected_language = guess_lexer(session["code"]).name.capitalize()
-        message = f"Select your style for your {detected_language} code 🎨"
         lexer = guess_lexer(session["code"])
     else:
         detected_language = selected_language[0].capitalize()
-        message = f"Select your style for your {detected_language} code 🎨"
         lexer = get_lexer_by_name_or_aliases(selected_language[1], session["code"])
+
+    message = f"Select your style for your <span class='detected-language'>{detected_language}</span> code 🎨"
 
     # Get the selected style and background color
     selected_style = session["style"]
