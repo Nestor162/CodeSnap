@@ -16,6 +16,7 @@ app = Flask(__name__)
 
 DEFAULT_STYLE = "monokai"
 DEFAULT_LANGUAGE = ("Detect language (Automatic)", "auto")
+NO_CODE_FALLBACK = "# No Code Entered"
 
 
 # Load secret_key from environment variable, in order to be able to use sessions safely.
@@ -137,7 +138,7 @@ def save_style():
     if request.form.get("style") is not None:
         session["style"] = request.form.get("style")
     if request.form.get("code") is not None:
-        session["code"] = request.form.get("code")
+        session["code"] = request.form.get("code") or NO_CODE_FALLBACK
     if request.form.get("language") is not None:
         selected_language_str = request.form.get("language")
         selected_language = tuple(selected_language_str.split("|"))

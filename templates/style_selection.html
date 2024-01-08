@@ -13,6 +13,14 @@
     color: {{ text_color }};
   }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("select").addEventListener("change", () => {
+      document.querySelector("form").submit();
+    });
+  });
+</script>
+<form method="post" action="{{ url_for('save_style') }}">
 <form>
   <div class="controls">
     <select name="style">
@@ -21,9 +29,6 @@
         <option value="{{ style_name }}">{{ style_name }}</option>
       {% endfor %}
     </select>
-    <button formmethod="post" formaction="{{ url_for('save_style') }}">
-      Change Style 🖌️
-    </button>
   </div>
   <div class="code">
     {{ highlighted_code | safe }}
