@@ -1,4 +1,4 @@
-# CodeSnap
+# CodeSnap <img src="https://github.com/Nestor162/CodeSnap/assets/113930607/658c24db-dbed-4f35-bbc8-47ae0526c34e" alt="App icon" width="60" height="60" align="left">
 
 CodeSnap is a simple code image generator. Paste or type your code, click a button, and get a downloadable image for easy sharing. You can also tweak the style to your liking. No complications, just a quick way to present and share your code.
 
