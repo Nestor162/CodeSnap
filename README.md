@@ -73,4 +73,4 @@ CodeSnap aims to continuously improve, and potential future features may include
 
 ## Credits
 
-CodeSnap extends its appreciation to [RealPython](https://realpython.com) for their valuable resources and inspiration.
+CodeSnap extends its appreciation to [RealPython](https://realpython.com/python-code-image-generator/) for their valuable resources and inspiration.
