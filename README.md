@@ -2,6 +2,36 @@
 
 CodeSnap is a simple code image generator. Paste or type your code, click a button, and get a downloadable image for easy sharing. You can also tweak the style to your liking. No complications, just a quick way to present and share your code.
 
+## Getting Started
+
+### Installation
+
+1.  Clone the repository to your local machine:
+    ```bash:
+    git clone https://github.com/Nestor162/CodeSnap
+    cd CodeSnap
+    ```
+2.  Set up a virtual environment and install the required dependencies using `requirements.txt`:
+    ```bash:
+    python -m venv venv
+    source venv/Scripts/activate
+    pip install -r requirements.txt
+    ```
+
+### Running the App
+
+3. Generate random secret key and save to an .env file
+   ```bash:
+   echo "FLASK_SECRET_KEY=$(openssl rand -hex 24)" > .env
+   ```
+4. Run the Flask application server:
+
+   ```bash:
+   python -m flask run
+   ```
+
+   This will start the CodeSnap server in development mode. Visit http://127.0.0.1:5000 in your browser to use CodeSnap.
+
 ## Features
 
 - **Extensive Language Support**: Choose from a vast selection of over 500 programming languages + automatic language detection.
