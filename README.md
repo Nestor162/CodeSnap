@@ -2,6 +2,19 @@
 
 CodeSnap is a simple code image generator. Paste or type your code, click a button, and get a downloadable image for easy sharing. You can also tweak the style to your liking. No complications, just a quick way to present and share your code.
 
+## Screenshots
+<div style="display: flex; gap: 20px;">
+
+<img src="https://github.com/Nestor162/CodeSnap/assets/113930607/c413a92b-21c7-4c78-b78b-a779899f961d" width="400px">
+
+<img src="https://github.com/Nestor162/CodeSnap/assets/113930607/e1f9d44f-db43-4808-be26-809d6d61d181" width="400px">
+
+<img src="https://github.com/Nestor162/CodeSnap/assets/113930607/40d2706d-61d5-4887-89db-76c1a981caf0" width="400px">
+
+<img src="https://github.com/Nestor162/CodeSnap/assets/113930607/17919196-13fa-461c-b583-d2587a472e84" width="400px">
+
+</div>
+
 ## Getting Started
 
 ### Installation
