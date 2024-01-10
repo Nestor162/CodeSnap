@@ -71,6 +71,5 @@ CodeSnap aims to continuously improve, and potential future features may include
 - Implementing a progress bar to provide visual feedback during image generation, thereby enhancing the overall user experience.
 - Exploring a theme gallery and a saved code snippet gallery for user convenience.
 
-## Credits
-
-CodeSnap extends its appreciation to [RealPython](https://realpython.com/python-code-image-generator/) for their valuable resources and inspiration.
+## Acknowledgments
+This project was inspired by and developed with the guidance of the tutorial provided by [RealPython](https://realpython.com/python-code-image-generator/). Thanks to RealPython for providing valuable resources and guidance.
